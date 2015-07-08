@@ -7,13 +7,6 @@ curl -s "https://raw.githubusercontent.com/JioCloud/puppet-rjil/master/hiera/dat
 #Add keys from Google docs
 curl -s "https://docs.google.com/spreadsheets/d/17d_4wls-7Tq_uo9VMiRY_0lF3MeAsaxrWcOMx2jCz70/export?gid=0&format=csv" | grep -o ssh-rsa >> ssh-keys
 
-#get keys from Jump Host
-scp ubuntu@49.40.64.85:/home/ubuntu/.ssh/authorized_keys ./
-
-#sort compare and get unique keys
-
-sort -u authorized_keys ssh-keys | uniq -u > ssh_keys_deploy
-
 
 #push keys to Jump Host
 
